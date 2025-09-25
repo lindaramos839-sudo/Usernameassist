@@ -9,11 +9,18 @@ EMAIL_REGEX = r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"
 PHONE_REGEX = r"\+?\d[\d\-\(\) ]{7,}\d"
 
 def generate_wordlist(charset, min_length, max_length, output_file):
+    if os.path.exists(output_file):
+        print(f"[!] Warning: Output file '{output_file}' already exists and will be overwritten.")
+    total_lines = 0
     with open(output_file, 'w') as f:
         for length in range(min_length, max_length + 1):
-            for word in itertools.product(charset, repeat=length):
+            for idx, word in enumerate(itertools.product(charset, repeat=length), 1):
                 f.write(''.join(word) + '\n')
+                total_lines += 1
+                if total_lines % 100000 == 0:
+                    print(f"  ... {total_lines} words generated so far")
     print(f"[+] Wordlist generated at: {output_file}")
+    print(f"[+] Total words generated: {total_lines}")
 
 def repair_wordlist(input_file, output_file):
     seen = set()
@@ -103,8 +110,12 @@ def main():
             print_usage()
         else:
             charset = sys.argv[2]
-            min_length = int(sys.argv[3])
-            max_length = int(sys.argv[4])
+            try:
+                min_length = int(sys.argv[3])
+                max_length = int(sys.argv[4])
+            except ValueError:
+                print("[!] min_length and max_length must be integers.")
+                sys.exit(1)
             output_file = sys.argv[5]
             generate_wordlist(charset, min_length, max_length, output_file)
     elif command == "repair":
