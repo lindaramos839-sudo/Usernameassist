@@ -22,8 +22,12 @@ wheels/
 
 # Test outputs
 /tmp/
-*.txt
-!requirements.txt
+*wordlist*.txt
+*output*.txt
+*results*.txt
+netwatcher_*.txt
+netwatcher_*.json
+netwatcher.db
 
 # IDEs
 .vscode/
