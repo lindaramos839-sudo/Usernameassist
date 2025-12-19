@@ -35,7 +35,7 @@ import smtplib
 import queue
 import csv
 from email.mime.text import MIMEText
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from collections import defaultdict, deque
 
 # Third-party imports (optional features handled gracefully)
@@ -171,7 +171,7 @@ _DB_CONN = init_db()
 # Utilities & lookups
 # -------------------------
 def now_ts():
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
 
 def is_private_ip(ip):
     try:
