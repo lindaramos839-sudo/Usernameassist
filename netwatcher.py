@@ -296,6 +296,7 @@ def geo_lookup(ip):
 def tls_cert_info(ip, port=443):
     try:
         ctx = ssl.create_default_context()
+        ctx.minimum_version = ssl.TLSVersion.TLSv1_2  # Enforce TLS 1.2 or higher
         sock = socket.create_connection((ip, port), timeout=3)
         ss = ctx.wrap_socket(sock, server_hostname=ip)
         cert = ss.getpeercert()
