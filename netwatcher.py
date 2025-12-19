@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-See
-All-in-one network monitor & suspicious-IP investigator.
+NetWatcher - All-in-one network monitor & suspicious-IP investigator.
+Author: Linda Ramos (@lindaramos839-sudo)
 
 Features included:
 -  monitoring via scapy sniffing (if available) or psutil polling

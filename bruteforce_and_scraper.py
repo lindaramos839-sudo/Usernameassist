@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""
+Bruteforce Wordlist & Scraper Utility
+Author: Linda Ramos (@lindaramos839-sudo)
+"""
+
 import itertools
 import string
 import sys

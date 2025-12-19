@@ -1,5 +1,7 @@
 # Usernameassist
 
+**Author:** Linda Ramos (@lindaramos839-sudo)
+
 A collection of network monitoring and username utility tools.
 
 ## Projects
