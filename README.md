@@ -36,8 +36,8 @@ pip install requests
 ### Termux Installation (Android)
 
 ```bash
-# Update packages and install Python
-pkg update && pkg install python
+# Update packages and install Python and git
+pkg update && pkg install python git
 
 # Install requests module
 pip install requests
@@ -143,7 +143,7 @@ Username: another_user
 
 ## License
 
-This project is licensed under the terms included in the LICENSE file.
+This project is licensed under the CC0 1.0 Universal License. See the LICENSE file for details.
 
 ## Contributing
 
