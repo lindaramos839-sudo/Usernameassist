@@ -111,7 +111,7 @@ ABUSEIPDB_URL = "https://api.abuseipdb.com/api/v2/check"
 VIRUSTOTAL_API_KEY = os.getenv("VIRUSTOTAL_API_KEY")
 VIRUSTOTAL_URL = "https://www.virustotal.com/api/v3/ip_addresses/{ip}"
 
-CUSTOM_WATCHLIST = os.getenv("CUSTOM_WATCHLIST", "") .split(",") if os.getenv("CUSTOM_WATCHLIST") else []
+CUSTOM_WATCHLIST = os.getenv("CUSTOM_WATCHLIST", "").split(",") if os.getenv("CUSTOM_WATCHLIST") else []
 
 # Alerts
 SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK_URL")
@@ -129,7 +129,7 @@ DASH_PASS = os.getenv("DASH_PASS")
 NMAP_BINARY = os.getenv("NMAP_BINARY") or "nmap"
 
 # Termux detection
-IS_TERMUX = os.getenv("TERM") is not None and "termux" in os.getenv("PREFIX", "") .lower() if os.getenv("PREFIX") else False
+IS_TERMUX = os.getenv("TERM") is not None and "termux" in os.getenv("PREFIX", "").lower() if os.getenv("PREFIX") else False
 # Instead of risking false TERMUX detection, we also allow environment override
 if os.getenv("FORCE_TERMUX") == "1":
     IS_TERMUX = True
